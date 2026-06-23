@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scratch · Fetec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- MARQUEE TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>JOGAR</span><span class="dot">◆</span>
+      <span>CRIAR</span><span class="dot">◆</span>
+      <span>SCRATCH</span><span class="dot">◆</span>
+      <span>FETEC</span><span class="dot">◆</span>
+      <span>INFORMÁTICA</span><span class="dot">◆</span>
+      <span>JOGAR</span><span class="dot">◆</span>
+      <span>CRIAR</span><span class="dot">◆</span>
+      <span>SCRATCH</span><span class="dot">◆</span>
+      <span>FETEC</span><span class="dot">◆</span>
+      <span>INFORMÁTICA</span><span class="dot">◆</span>
+      <span>JOGAR</span><span class="dot">◆</span>
+      <span>CRIAR</span><span class="dot">◆</span>
+      <span>SCRATCH</span><span class="dot">◆</span>
+      <span>FETEC</span><span class="dot">◆</span>
+      <span>INFORMÁTICA</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="#">
+      <span class="logo-bracket">[</span>FE<span class="logo-accent">TEC</span><span class="logo-bracket">]</span>
+    </a>
+    <div class="nav-right">
+      <span class="nav-label">Informática para Internet</span>
+      <button id="theme-toggle" class="theme-btn" aria-label="Alternar tema">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <p class="hero-eyebrow">// alunos · 2026</p>
+        <h1 class="hero-title">
+          <span class="line-1">PROJETOS</span>
+          <span class="line-2">EM <em>SCRATCH</em></span>
+        </h1>
+        <p class="hero-sub">Jogos criados pelos alunos do curso de Informática para Internet. Clique para jogar.</p>
+      </div>
+   
+
+
+
+
+</section>
+
+
+
+    </div>
+  </section>
+
+
+  <!-- GRID -->
+  <main>
+    <div id="grid"></div>
+    <div id="empty">
+      <p class="empty-icon">?</p>
+      <p>Nenhum projeto encontrado.</p>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-info">
+          <div id="modal-title">Título do Jogo</div>
+        </div>
+        <button class="modal-close" id="close-modal-btn" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-stage">
+        <iframe id="iframe" src="" allowfullscreen title="Projeto Scratch"></iframe>
+      </div>
+      <div class="modal-footer">
+        <a id="modal-link" href="#" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          Ver no Scratch
+        </a>
+        <div class="modal-nav">
+          <button id="prev-btn" aria-label="Anterior">‹</button>
+          <button id="next-btn" aria-label="Próximo">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text"><span class="footer-bracket">[</span>FE<span class="footer-accent">TEC</span><span class="footer-bracket">]</span></span>
+        <p class="footer-tagline">Informática para Internet</p>
+      </div>
+      <div class="footer-info">
+        <p class="footer-desc">Projetos desenvolvidos pelos alunos do 1°, 2° e 3° anos do curso técnico integrado.</p>
+        <a class="footer-link" href="https://etecdpm.cps.sp.gov.br/" target="_blank" rel="noopener">
+          etecdpm.cps.sp.gov.br
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <img class="footer-gov-logo" src="https://tavernf.github.io/scratchFetec/regua_horizontal_logo_horizontal_gov_cps_cor.png" alt="Governo do Estado de São Paulo / CPS" />
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

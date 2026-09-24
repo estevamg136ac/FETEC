@@ -15,10 +15,14 @@ const projects = [
   { id: 1067484457, title: 'Water Sort' },
   { id: 1067544239, title: 'Zumbis Famintos' },
   { id: 1067830709, title: 'Sonic 2' },
+  { id: 1284877845, title: 'Sobrevivência Máxima' },
 ];
 
+// Jogo em destaque (aparece no topo, ao lado do título)
+const featured = { id: 745861471, title: 'Guitar Hero', img: 'guitar-hero.png' };
+
 // ── STATE ─────────────────────────────────────────────────────────────────────
-let currentIndex = 0;
+let currentIndex = 0; // null = jogo em destaque
 
 // ── ELEMENTS ──────────────────────────────────────────────────────────────────
 const grid    = document.getElementById('grid');
@@ -40,6 +44,36 @@ themeBtn.addEventListener('click', () => {
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 projects.forEach((p, idx) => grid.appendChild(createCard(p, idx)));
+renderFeatured();
+
+function renderFeatured() {
+  const box = document.getElementById('featured');
+  if (!box) return;
+  box.innerHTML = `
+    <div class="featured-thumb" style="--bg:url('${featured.img}')">
+      <img
+        src="${featured.img}"
+        alt="${featured.title}"
+        onerror="this.onerror=null;this.src='https://uploads.scratch.mit.edu/get_image/project/${featured.id}_480x360.png'">
+      <div class="card-overlay">
+        <div class="play-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+        </div>
+      </div>
+      <span class="featured-badge">★ DESTAQUE</span>
+    </div>
+    <div class="featured-body">
+      <div class="card-title">${featured.title}</div>
+    </div>`;
+  const open = () => openProject(featured, null);
+  box.addEventListener('click', open);
+  box.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+  });
+}
+
 function createCard(p, idx) {
   const card = document.createElement('div');
   card.className = 'card';
@@ -78,8 +112,12 @@ function createCard(p, idx) {
 
 // ── MODAL ─────────────────────────────────────────────────────────────────────
 function openModal(index) {
+  openProject(projects[index], index);
+}
+
+function openProject(p, index) {
   currentIndex = index;
-  const p = projects[index];
+  modal.classList.toggle('single', index === null); // esconde ‹ › no destaque
   mTitle.textContent = p.title;
   mLink.href         = `https://scratch.mit.edu/projects/${p.id}/`;
   iframe.src          = `https://scratch.mit.edu/projects/${p.id}/embed`;
@@ -94,6 +132,7 @@ function closeModal() {
 }
 
 function navigate(dir) {
+  if (currentIndex === null) return;
   const next = currentIndex + dir;
   if (next >= 0 && next < projects.length) openModal(next);
 }
